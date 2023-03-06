@@ -26,3 +26,50 @@ console.log(ascendSort); //[9000, 966.87, 406.791, 400, 200, 88.5, 66.7]
 // the slice() method makes a copy of the entire array when no argument is passed in
 let newAscendSort = digits.slice().sort((a, b) => a - b);
 console.log(newAscendSort);
+
+
+/*******MORE COMPLEX SORTINGB*******/
+
+const music = [{
+
+    title: 'Eine Kleine',
+    authors: ['Wolfgang Amadeus Mozart'],
+    rating: 4.48,
+    genres: ['Classical Music', 'Nactmuzik']
+ },
+ {
+    title: 'Seneca',
+    authors: ['Claudio Monteverdi'],
+    rating: 4.39,
+    genres: ['Classical Music', 'Opera']
+ },
+ {
+    title: 'Radetzky March',
+    authors: ['Johann Strauss'],
+    rating: 4.36,
+    genres: ['CLassical Music', 'March']
+ 
+ },
+ {
+    title: 'Ode to joy',
+    authors: ['Ludwig Van Beethoven'],
+    rating: 4.6,
+    genres: ['Classical Music', 'Celebration']
+ },
+ {
+    title: 'Messiah',
+    authors: ['George, Fredric Handel'],
+    rating: 4.8,
+    genres: ['Classical Music', 'Oratorio']
+ },
+ {
+    title: 'Symphony No 18',
+    authors: ['Franz Joseph Haydn'],
+    rating: 4.7,
+    genres: ['Classical Music', 'Symphony']
+ }
+ ];
+
+// sorting by highest rating
+ let bestMusic = music.sort((a, b) => b.rating - a.rating);
+ console.log(bestMusic);
