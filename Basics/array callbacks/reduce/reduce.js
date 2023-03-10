@@ -110,13 +110,14 @@ const music = [{
  ];
 
  const ratedMusic = music.reduce((groupedMusic, music) =>{
-    const rate = Math.floor(music.rating);
-    if(!groupedMusic[rate]){
-        groupedMusic[rate] = [];
+    const rate = Math.floor(music.rating); // chop off decimals
+    if(!groupedMusic[rate]){ // checking if rating key not exists
+        groupedMusic[rate] = []; // init an empty array to group specific rate key
     }
        groupedMusic[rate].push(music);
     return groupedMusic;
  }, {});
 console.log(ratedMusic);
+
 
 // revisit for futhur clarity
