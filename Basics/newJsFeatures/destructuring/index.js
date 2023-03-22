@@ -33,7 +33,7 @@ const racer = {
 
 const {first, last, country, time} = racer;
 console.log(first, last);
-console.log(time);
+console.log(time); // undefined
 
 // making a variable based on the value of a key
 const {country: nation, title: honor} = racer;
@@ -41,3 +41,27 @@ console.log(country, honor);
 
 const {first: fName, last: lName, ...other} = racer;
 console.log(other);
+
+
+
+/**********NESTED DESTRUCTURING**********/
+const riders = [{
+        firstName: 'Valentino',
+        lastName: 'Rossi',
+        origin: 'Italy'
+    },
+    {
+        firstName: 'Fabio',
+        lastNmae: 'Quartararo',
+        origin: 'France'
+    },
+    {
+        firstName: 'Loris',
+        lastName: 'Capirossi',
+        origin: 'Italy'
+    }
+];
+
+const [, {origin}, {origin: home}] = riders;
+console.log(origin)
+console.log(home);
