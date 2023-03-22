@@ -65,3 +65,29 @@ const riders = [{
 const [, {origin}, {origin: home}] = riders;
 console.log(origin)
 console.log(home);
+
+
+/*********DESTRUCTURING PARAMETERS**********/
+// objects
+const swimmer = {
+    first: 'Michael',
+    last: 'Phelps',
+    country: 'USA'
+}
+const fullName = ({first, last}) => {
+    return `${first} ${last}`;
+}
+
+console.log(fullName(swimmer));
+
+// arrays
+const response = [
+    'HTTP/1.1',
+    '404 ERROR',
+    'application/json'
+]
+
+let parseResponse = ([protocol, statusCode, contentType]) =>{
+    console.log(`status: ${statusCode}`);
+}
+parseResponse(response);
