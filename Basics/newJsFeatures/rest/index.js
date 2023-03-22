@@ -33,7 +33,7 @@ single array
 
 unlike the arguments keyword, rest... collects
 the remaining arguments leaving out the initially
-passed arguments and work with it
+passed/declared arguments and work with it
 */
 
 let arr = (...nums) => {
