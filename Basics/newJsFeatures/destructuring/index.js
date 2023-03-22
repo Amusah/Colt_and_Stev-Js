@@ -37,7 +37,7 @@ console.log(time); // undefined
 
 // making a variable based on the value of a key
 const {country: nation, title: honor} = racer;
-console.log(country, honor);
+console.log(nation, honor);
 
 const {first: fName, last: lName, ...other} = racer;
 console.log(other);
