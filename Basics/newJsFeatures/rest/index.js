@@ -12,7 +12,7 @@ console.log(sum(1,2,3,4,5));
 /*
     CAVEATS...
 the arguments keyword looks like an array
-but has no array methods like forEach(), reduce()...
+but has no array methods like push()/pop() forEach(), reduce()...
 so unless you convert it into an actual array
 this can be done with the spread... operator
 const argsArray = [...arguments]
@@ -25,3 +25,4 @@ arguments has initially been passed into function
 */
 
 
+                /*********REST PARAMETERS*********/

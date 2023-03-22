@@ -1,4 +1,8 @@
 // SPREAD OPERATION
+/*
+spread... operator spreads out iterables (array, objects or strings)
+into individual elements/arguments...etc
+*/
 // spread in function call
 const nums = [5, 4, 7, 8];
 console.log(Math.max(nums)); // NAN
@@ -25,7 +29,7 @@ console.log(mollusca);
 const inverts = [...cnidaria, ...gastropods, ...cephalopods];
 console.log(inverts);
 
-const cnidariaCopy = [...cnidaria]
+const cnidariaCopy = [...cnidaria];
 console.log(cnidariaCopy);
 
 
