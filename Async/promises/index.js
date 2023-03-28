@@ -51,10 +51,10 @@ fakeRequest('/about')
 fakeRequest('/users')
 .then((res) => {
     console.log(`Status Code: ${res.status}`);
+    //console.log(`Data: ${res.data}`);
     for(d of res.data){
         console.log(d);
     }
-    //console.log(`Data: ${res.data}`);
     console.log('Request Successful');
 })
 .catch((res) => console.log(`${res.status} Request Failed`));
