@@ -13,9 +13,8 @@ const hireMe = () => {
 hireMe().then(() => {
     console.log('Congratulations you\'ve been hired!');
 }).catch(() => {
-    console.log(':( Sorry your expectise is beyond our required labour we recommend working with NASA')
+    console.log(':( Sorry your expectise is beyond our required labour we recommend working with NASA');
 });
-
 
 
 
