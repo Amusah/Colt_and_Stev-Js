@@ -77,7 +77,7 @@ const swimmer = {
 const fullName = ({first, last}) => {
     return `${first} ${last}`;
 }
-
+// Note: this function expects an object as an aruement when called
 console.log(fullName(swimmer));
 
 // arrays
