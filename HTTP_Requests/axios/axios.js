@@ -30,6 +30,8 @@ axios.get('https://swapi.dev/api/planets/')
     
 })
 .catch(err => console.log(err))
+
+
  /*
     data is a key/property of a response object returned by 
     axios http request. the callback function in the
