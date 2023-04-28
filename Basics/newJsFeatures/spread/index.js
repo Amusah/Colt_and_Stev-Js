@@ -14,7 +14,7 @@ function printItems(a, b, c, d){
     console.log('c', c);
     console.log('d', d);
 }
-//printItems(nums); // a [5 , 4, 7, 8, 9, 2]; a is seen as a single argument
+//printItems(nums); // a [5 , 4, 7, 8]; a is seen as a single argument
 printItems(...nums);
 
 const cephalopods = ['dumbo octopus', 'humboldt squid', 'flamboyant cuttlefish'];
