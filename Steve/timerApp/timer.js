@@ -19,7 +19,7 @@ class Timer {
             onStart(this.timeRemaining);
         }
         tick();
-        this.intervalId = setInterval(tick, 20);
+        this.intervalId = setInterval(tick, 50);
     };
 
     pause = () => {
@@ -36,7 +36,7 @@ class Timer {
             // const timeRemaining = this.timeRemaining;
             // this.timeRemaining = timeRemaining - 1;
             // Refactor
-            this.timeRemaining = this.timeRemaining - .02;
+            this.timeRemaining = this.timeRemaining - .05;
             if(this.onTick){
                 this.onTick(this.timeRemaining);
             }
