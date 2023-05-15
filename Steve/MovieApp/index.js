@@ -13,7 +13,14 @@ const requestData = async (keyword) => {
 const onInput = async e => {
     if(e.target.value !== ''){
         const movies = await requestData(e.target.value);
-        console.log(movies)
+        for (let movie of movies){
+            let div = document.createElement('div');
+            div.innerHTML = `
+                <img src="${movie.Poster}"/>
+                <h1>${movie.Title }</h1>
+            `;
+            document.querySelector('#target').appendChild(div);
+        }
     }
 };
 input.addEventListener('input', debounce(onInput));
