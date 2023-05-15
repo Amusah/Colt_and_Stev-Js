@@ -6,13 +6,14 @@ const requestData = async (keyword) => {
             s: keyword
         }
     });
-    //console.log(response.data);
+    return response.data.Search; 
 } 
 //requestData().catch(err => console.log(err));
 
-const onInput = e => {
+const onInput = async e => {
     if(e.target.value !== ''){
-        requestData(e.target.value);
+        const movies = await requestData(e.target.value);
+        console.log(movies)
     }
 };
 input.addEventListener('input', debounce(onInput));
