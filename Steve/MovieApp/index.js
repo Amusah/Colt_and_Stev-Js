@@ -34,9 +34,8 @@ const debounce = (func, delay = 1000) => {
 //input.addEventListener('input', inputEvent);
 
 const onInput = e => {
-    // if(e.target.value !== ''){
-    //     requestData(e.target.value);
-    // }
-    requestData(e.target.value);
+    if(e.target.value !== ''){
+        requestData(e.target.value);
+    }
 };
 input.addEventListener('input', debounce(onInput));
