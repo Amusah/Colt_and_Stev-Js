@@ -6,6 +6,9 @@ const requestData = async (keyword) => {
             s: keyword
         }
     });
+    if(response.data.Error){
+        return [];
+    }
     return response.data.Search; 
 } 
 //requestData().catch(err => console.log(err));
