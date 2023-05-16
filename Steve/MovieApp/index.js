@@ -1,4 +1,9 @@
 const input = document.querySelector('input');
+const root = document.querySelector('.autocomplete');
+const dropdown = document.querySelector('.dropdown');
+const resultWrapper = document.querySelector('.results');
+
+
 const requestData = async (keyword) => {
     const response = await axios.get('http://www.omdbapi.com/', {
         params: {
@@ -12,6 +17,16 @@ const requestData = async (keyword) => {
     return response.data.Search; 
 } 
 //requestData().catch(err => console.log(err));
+
+root.innerHTML = `
+    <label><b>Search for a movie</b></label>
+    <input class="input" />
+    <div class="dropdown">
+        <div class="dropdown-menu">
+            <div class="dropdown-content results"></div>
+        </div>
+    </div>
+`;
 
 const onInput = async e => {
     if(e.target.value !== ''){
