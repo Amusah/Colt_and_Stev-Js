@@ -35,9 +35,10 @@ const onInput = async e => {
         dropdown.classList.add('is-active');
         for (let movie of movies){
             let option = document.createElement('a');
+            let moviePoster = movie.Poster === 'N/A' ? '' : movie.Poster
             option.classList.add('dropdown-item');
             option.innerHTML = `
-                <img src="${movie.Poster}"/>
+                <img src="${moviePoster}"/>
                 ${movie.Title }
             `;
             resultWrapper.appendChild(option);
