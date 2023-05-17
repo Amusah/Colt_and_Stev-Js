@@ -79,6 +79,27 @@ const onMovieSelect = async movie => {
             i: movie.imdbID
         }
     });
-    console.log(movie)
-    console.log(response.data);
+    // console.log(movie)
+    // console.log(response.data);
+    document.querySelector('#movie-details').innerHTML = renderMovie(response.data);
+}
+
+// injecting movie details into the Dom
+const renderMovie = movieDetails => {
+    return `
+    <article class="media">
+    <figure class="media-left">
+      <p class="image">
+        <img src="${movieDetails.Poster}" alt="">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <h1>${movieDetails.Title}</h1>
+        <h4>${movieDetails.Genre}</h4>
+        <p>${movieDetails.Plot}</p>
+      </div>
+    </div>
+    </article>
+    `
 }
