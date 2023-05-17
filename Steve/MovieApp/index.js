@@ -28,10 +28,18 @@ const requestData = async (keyword) => {
 
 
 
-const onInput = async e => {
+const inputEvent = async e => {
+    //resultWrapper.innerHTML = '';
+    // dropdown.classList.remove('is-active')
     if(e.target.value !== ''){
         const movies = await requestData(e.target.value);
-        resultWrapper.innerHTML = '';
+        // resultWrapper.innerHTML = '';
+        if(!movies.length){
+            dropdown.classList.remove('is-active');
+            resultWrapper.innerHTML = '';
+            return;
+        }
+        //resultWrapper.innerHTML = '';
         dropdown.classList.add('is-active');
         for (let movie of movies){
             let option = document.createElement('a');
@@ -41,11 +49,19 @@ const onInput = async e => {
                 <img src="${moviePoster}"/>
                 ${movie.Title }
             `;
+            option.addEventListener('click', () => {
+                input.value = movie.Title;
+                dropdown.classList.remove('is-active');
+            });
+            
             resultWrapper.appendChild(option);
         }
+    } else {
+        resultWrapper.innerHTML = '';
+        dropdown.classList.remove('is-active');
     }
 };
-input.addEventListener('input', debounce(onInput));
+input.addEventListener('input', debounce(inputEvent));
 document.addEventListener('click', e => {
     if(!root.contains(e.target)){
         dropdown.classList.remove('is-active');
