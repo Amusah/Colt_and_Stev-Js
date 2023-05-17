@@ -22,6 +22,7 @@ const requestData = async (keyword) => {
     if(response.data.Error){
         return [];
     }
+    //console.log(response.data)
     return response.data.Search; 
 } 
 //requestData().catch(err => console.log(err));
@@ -49,11 +50,13 @@ const inputEvent = async e => {
                 <img src="${moviePoster}"/>
                 ${movie.Title }
             `;
+            // fetching movie title into form field on click
             option.addEventListener('click', () => {
                 input.value = movie.Title;
                 dropdown.classList.remove('is-active');
+                onMovieSelect(movie)
             });
-            
+
             resultWrapper.appendChild(option);
         }
     } else {
@@ -67,3 +70,15 @@ document.addEventListener('click', e => {
         dropdown.classList.remove('is-active');
     }
 });
+
+// making a follow up request to get additional information about a specific movie
+const onMovieSelect = async movie => {
+    const response = await axios.get('http://www.omdbapi.com/', {
+        params: {
+            apikey: '7fb5b472',
+            i: movie.imdbID
+        }
+    });
+    console.log(movie)
+    console.log(response.data);
+}
