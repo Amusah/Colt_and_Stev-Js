@@ -87,7 +87,7 @@ const renderMovie = movieDetails => {
             return acc + value;
         }
     }, 0)
-    console.log(awards)
+    // console.log(awards)
     // console.log(dollars, metaScore, imdbRating, imdbVotes)
 
     return `
@@ -106,23 +106,23 @@ const renderMovie = movieDetails => {
     </div>
     </article>
 
-    <article class="notification is-success">
+    <article data-value=${awards} class="notification is-success">
         <p class="title">${movieDetails.Awards}</p>
         <p class="subtitle">Awards</p>
     </article>
-    <article class="notification is-success">
+    <article data-value=${dollars} class="notification is-success">
         <p class="title">${movieDetails.BoxOffice}</p>
         <p class="subtitle">Box Office</p>
     </article>
-    <article class="notification is-success">
+    <article data-value=${metaScore} class="notification is-success">
         <p class="title">${movieDetails.Metascore}</p>
         <p class="subtitle">Metascore</p>
     </article>
-    <article class="notification is-success">
+    <article data-value=${imdbRating} class="notification is-success">
         <p class="title">${movieDetails.imdbRating}</p>
         <p class="subtitle">IMDB Rating</p>
     </article>
-    <article class="notification is-success">
+    <article data-value=${imdbVotes} class="notification is-success">
         <p class="title">${movieDetails.imdbVotes}</p>
         <p class="subtitle">IMDB Votes</p>
     </article>
