@@ -1,7 +1,4 @@
-//requestData().catch(err => console.log(err));
-
-autoCompleteWidget({
-    root: document.querySelector('.autocomplete'),
+const autoCompleteConfig = {
     renderOption(movie){
         let moviePoster = movie.Poster === 'N/A' ? '' : movie.Poster;
         return `
@@ -27,6 +24,15 @@ autoCompleteWidget({
             console.log(response.data)
             return response.data.Search; 
         }
+}
+autoCompleteWidget({
+    ...autoCompleteConfig,
+    root: document.querySelector('#left-autocomplete'),
+    
+});
+autoCompleteWidget({
+    ...autoCompleteConfig,
+    root: document.querySelector('#right-autocomplete')
 });
 
 // making a follow up request to get additional information about a specific movie
@@ -60,23 +66,23 @@ const renderMovie = movieDetails => {
     </div>
     </article>
 
-    <article class="notification is-primary">
+    <article class="notification is-success">
         <p class="title">${movieDetails.Awards}</p>
         <p class="subtitle">Awards</p>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-success">
         <p class="title">${movieDetails.BoxOffice}</p>
         <p class="subtitle">Box Office</p>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-success">
         <p class="title">${movieDetails.Metascore}</p>
         <p class="subtitle">Metascore</p>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-success">
         <p class="title">${movieDetails.imdbRating}</p>
         <p class="subtitle">IMDB Rating</p>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-success">
         <p class="title">${movieDetails.imdbVotes}</p>
         <p class="subtitle">IMDB Votes</p>
     </article>
