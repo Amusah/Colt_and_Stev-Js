@@ -1,4 +1,4 @@
-const autoCompleteWidget = ({ root }) => {
+const autoCompleteWidget = ({ root, renderOption }) => {
     root.innerHTML = `
         <label><b>Search for a movie</b></label>
         <input type="text" class="input" />
@@ -28,12 +28,8 @@ const autoCompleteWidget = ({ root }) => {
             dropdown.classList.add('is-active');
             for (let movie of movies){
                 let option = document.createElement('a');
-                let moviePoster = movie.Poster === 'N/A' ? '' : movie.Poster
                 option.classList.add('dropdown-item');
-                option.innerHTML = `
-                    <img src="${moviePoster}"/>
-                    ${movie.Title }
-                `;
+                option.innerHTML = renderOption(movie);
                 // fetching movie title into form field on click
                 option.addEventListener('click', () => {
                     input.value = movie.Title;

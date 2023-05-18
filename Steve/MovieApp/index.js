@@ -8,19 +8,20 @@ const requestData = async (keyword) => {
     if(response.data.Error){
         return [];
     }
-    //console.log(response.data)
+    console.log(response.data)
     return response.data.Search; 
 } 
 //requestData().catch(err => console.log(err));
 
 autoCompleteWidget({
-    root: document.querySelector('.autocomplete')
-});
-autoCompleteWidget({
-    root: document.querySelector('.autocomplete_two')
-});
-autoCompleteWidget({
-    root: document.querySelector('.autocomplete_three')
+    root: document.querySelector('.autocomplete'),
+    renderOption(movie){
+        let moviePoster = movie.Poster === 'N/A' ? '' : movie.Poster;
+        return `
+            <img src="${moviePoster}"/>
+            ${movie.Title } (${movie.Year})
+        `
+    }
 });
 
 // making a follow up request to get additional information about a specific movie
