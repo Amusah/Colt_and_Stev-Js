@@ -1,4 +1,10 @@
-const autoCompleteWidget = ({ root, renderOption, onOptionSelect, inputValue }) => {
+const autoCompleteWidget = ({ 
+    root, 
+    renderOption,
+    onOptionSelect, 
+    inputValue,
+    requestData 
+    }) => {
     root.innerHTML = `
         <label><b>Search for a movie</b></label>
         <input type="text" class="input" />

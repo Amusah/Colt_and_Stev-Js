@@ -1,16 +1,3 @@
-const requestData = async (keyword) => {
-    const response = await axios.get('http://www.omdbapi.com/', {
-        params: {
-            apikey: '7fb5b472',
-            s: keyword
-        }
-    });
-    if(response.data.Error){
-        return [];
-    }
-    console.log(response.data)
-    return response.data.Search; 
-} 
 //requestData().catch(err => console.log(err));
 
 autoCompleteWidget({
@@ -26,7 +13,20 @@ autoCompleteWidget({
     },
     inputValue(movie){
         return movie.Title;
-    }
+    },
+    async requestData(keyword){
+            const response = await axios.get('http://www.omdbapi.com/', {
+                params: {
+                    apikey: '7fb5b472',
+                    s: keyword
+                }
+            });
+            if(response.data.Error){
+                return [];
+            }
+            console.log(response.data)
+            return response.data.Search; 
+        }
 });
 
 // making a follow up request to get additional information about a specific movie
