@@ -19,8 +19,13 @@ autoCompleteWidget({
         let moviePoster = movie.Poster === 'N/A' ? '' : movie.Poster;
         return `
             <img src="${moviePoster}"/>
-            ${movie.Title } (${movie.Year})
-        `
+            ${movie.Title } (${movie.Year}) `
+    },
+    onOptionSelect(movie){
+        onMovieSelect(movie);
+    },
+    inputValue(movie){
+        return movie.Title;
     }
 });
 
