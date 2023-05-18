@@ -79,7 +79,16 @@ const renderMovie = movieDetails => {
     const metaScore = movieDetails.Metascore ? parseInt(movieDetails.Metascore) : '';
     const imdbRating = movieDetails.imdbRating ? parseFloat(movieDetails.imdbRating) : '';
     const imdbVotes = movieDetails.imdbVotes ? parseInt(movieDetails.imdbVotes.replace(/,/g, '')) : '';
-    console.log(dollars, metaScore, imdbRating, imdbVotes)
+    const awards = movieDetails.Awards.split(' ').reduce((acc, curr) => {
+        let value = parseInt(curr);
+        if(isNaN(value)){
+            return acc;
+        }else{
+            return acc + value;
+        }
+    }, 0)
+    console.log(awards)
+    // console.log(dollars, metaScore, imdbRating, imdbVotes)
 
     return `
     <article class="media">
