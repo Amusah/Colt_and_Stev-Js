@@ -21,7 +21,8 @@ const autoCompleteConfig = {
             console.log(response.data)
             return response.data.Search; 
         }
-}
+};
+
 // left auto complete widget
 autoCompleteWidget({
     ...autoCompleteConfig,
@@ -69,8 +70,8 @@ const onMovieSelect = async (movie, movieElement, side) => {
 }
 
 const runComparison = () => {
-    let leftSideStats = document.querySelectorAll('#left-movie-details .notification');
-    let rightSideStats = document.querySelectorAll('#right-movie-details .notification');
+    let leftSideStats = document.querySelectorAll('#left-movie-details .notification'); // nodeList
+    let rightSideStats = document.querySelectorAll('#right-movie-details .notification'); // nodeList
     
     leftSideStats.forEach((leftStat, index) => {
         const rightStat = rightSideStats[index];
@@ -90,7 +91,7 @@ const runComparison = () => {
 
 // injecting movie details into the Dom
 const renderMovie = movieDetails => {
-    // '624589231'
+    // pulling out number values from movie details
     const dollars = movieDetails.BoxOffice ? parseInt(movieDetails.BoxOffice.replace(/\$/g, '').replace(/,/g, '')) : '';
     const metaScore = movieDetails.Metascore ? parseInt(movieDetails.Metascore) : '';
     const imdbRating = movieDetails.imdbRating ? parseFloat(movieDetails.imdbRating) : '';
