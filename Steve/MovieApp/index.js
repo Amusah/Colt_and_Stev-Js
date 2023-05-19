@@ -69,7 +69,23 @@ const onMovieSelect = async (movie, movieElement, side) => {
 }
 
 const runComparison = () => {
-    console.log('time for comparison');
+    let leftSideStats = document.querySelectorAll('#left-movie-details .notification');
+    let rightSideStats = document.querySelectorAll('#right-movie-details .notification');
+    
+    leftSideStats.forEach((leftStat, index) => {
+        const rightStat = rightSideStats[index];
+        const leftSideValue = parseInt(leftStat.dataset.value);
+        const rightSideValue = parseInt(rightStat.dataset.value);
+
+        if(leftSideValue > rightSideValue){
+            rightStat.classList.remove('is-success');
+            rightStat.classList.add('is-warning');
+        } else {
+            leftStat.classList.remove('is-success');
+            leftStat.classList.add('is-warning');
+        }
+        
+    })
 }
 
 // injecting movie details into the Dom
