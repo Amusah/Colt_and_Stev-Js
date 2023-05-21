@@ -65,7 +65,7 @@ const onMovieSelect = async (movie, movieElement, side) => {
     }
 
     if(leftMovieInfo && rightMovieInfo){
-        runComparison();
+        runComparison(response.data);
     }
 }
 
@@ -86,7 +86,31 @@ const runComparison = () => {
             leftStat.classList.add('is-warning');
         }
         
-    })
+    });
+
+    const sumMovieStats = (nodeList) => {
+        //console.log(nodeList)
+        let title;
+        let value = Array.from(nodeList).reduce((total, val) => {
+            if(val.dataset.value){
+                total = total + parseFloat(val.dataset.value);
+            }
+            if(val.classList.contains('movie-title')){
+                title = val.innerText;
+            }
+            //console.log(total);
+            return total;
+        }, 0);
+        return {title, value}
+    }
+    let leftTotalStats = sumMovieStats(leftSideStats);
+    let rightTotalStats = sumMovieStats(rightSideStats);
+    console.log(leftTotalStats)
+    console.log(rightTotalStats)
+
+    leftTotalStats.value > rightTotalStats.value ? 
+    alert(`${leftTotalStats.title} has the highest total score`) : 
+    alert(`${rightTotalStats.title} has the highest total score`);
 }
 
 // injecting movie details into the Dom
@@ -143,5 +167,6 @@ const renderMovie = movieDetails => {
         <p class="title">${movieDetails.imdbVotes}</p>
         <p class="subtitle">IMDB Votes</p>
     </article>
+    <p class="is-hidden movie-title notification">${movieDetails.Title}</p>
     `;
 }

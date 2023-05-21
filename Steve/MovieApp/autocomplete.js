@@ -60,7 +60,7 @@ const autoCompleteWidget = ({
         } catch (err) {
             input.classList.add('is-danger');
             errMsg.textContent = 'Check you internet connection📶';
-            errMsg.classList.remove('is-hidden');
+            //errMsg.classList.remove('is-hidden');
         }
     };
     input.addEventListener('input', debounce(inputEvent));
