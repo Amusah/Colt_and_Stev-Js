@@ -73,21 +73,27 @@ const stepThroughCell = (row, column) => {
     grid[row][column] = true;
     // Assemble randomly-ordered list of neighbors
     const neighbors = shuffle([
-        [row - 1, column], // top neighbor
-        [row, column + 1], // right neighbor
-        [row + 1, column], // bottom neighbor
-        [row, column - 1] // left neighbor
+        [row - 1, column, 'up'], // top neighbor
+        [row, column + 1, 'right'], // right neighbor
+        [row + 1, column, 'down'], // bottom neighbor
+        [row, column - 1, 'left'] // left neighbor
     ]);//console.log(neighbors)
 
     // For each neighbor....
-
+    for(let neighbor of neighbors){
+        const [nextRow, nextColumn, direction] = neighbor;
     // See if that neighbor is out of bounds
-    
+        if(nextRow < 0 || nextRow >= cells || nextColumn < 0 || nextColumn >= cells){
+            continue;
+        }
     // If neighbor is visited, continue to next neighbor
-
+        if(grid[nextRow][nextColumn]){
+            continue;
+        }
     // Remove a wall from either horizontals or verticals array
 
     // Visit that next cell
+    }
 };
 
 stepThroughCell(startRow, startColumn);
