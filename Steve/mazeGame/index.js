@@ -36,20 +36,20 @@ World.add(world, walls);
 
 // maze generation
 const shuffle = arr => {
-    // let counter = arr.length;
-    // while(counter > 0){
-    //     const randIndex = Math.floor(Math.random() * counter);
-    //     counter--;
-    //     const temp = arr[counter]
-    //     arr[counter] = arr[randIndex];
-    //     arr[randIndex] = temp;
-    // }
-    for(let counter = arr.length; counter = 0; counter--){
+    let counter = arr.length;
+    while(counter > 0){
         const randIndex = Math.floor(Math.random() * counter);
+        counter--;
         const temp = arr[counter]
-        arr[counter] = arr[randIndex]
+        arr[counter] = arr[randIndex];
         arr[randIndex] = temp;
     }
+    // for(let counter = arr.length; counter = 0; counter--){
+    //     const randIndex = Math.floor(Math.random() * counter);
+    //     const temp = arr[counter]
+    //     arr[counter] = arr[randIndex]
+    //     arr[randIndex] = temp;
+    // }
     return arr;
 }
 
