@@ -1,9 +1,9 @@
-const { World, Engine, Render, Runner, Bodies } = Matter;
+const { World, Engine, Render, Runner, Bodies, Body } = Matter;
 console.log(Matter);
 console.log(Matter.Engine.create());
 console.log(Matter.Render.create({}));
 
-const cells = 3;
+const cells = 15;
 const width = 600;
 const height = 600;
 const unitLength = width / cells;
@@ -169,20 +169,24 @@ const ball = Bodies.circle(
 );
 World.add(world, ball);
 
-
 // handling keyboard events to move the ball around
 document.addEventListener('keydown', event => {
+    const { x, y } = ball.velocity;
     //console.log(event)
     if(event.code === 'KeyW' || event.code === 'ArrowUp'){
-        console.log('moved up');
+        //console.log('moved up');
+        Body.setVelocity(ball, {x, y: y - 5});
     }
     if(event.code === 'KeyS' || event.code === 'ArrowDown'){
-        console.log('moved down');
+        //console.log('moved down');
+        Body.setVelocity(ball, {x, y: y + 5});
     }
     if(event.code === 'KeyA' || event.code === 'ArrowLeft'){
-        console.log('moved left')
+        //console.log('moved left');
+        Body.setVelocity(ball, { x: x - 5, y})
     }
     if(event.code === 'KeyD' || event.code === 'ArrowRight'){
-        console.log('moved right')
+        //console.log('moved right')
+        Body.setVelocity(ball, { x: x + 5, y})
     }
 });
