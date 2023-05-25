@@ -108,11 +108,13 @@ const stepThroughCell = (row, column) => {
 };
 stepThroughCell(startRow, startColumn);
 
+// horizontal walls
 horizontals.forEach((row, rowIndex) => {
     row.forEach((open, columnIndex) => {
         if(open){
             return;
         }
+        // drawing horizontal walls
         const wall = Bodies.rectangle(
             columnIndex * unitLength + unitLength / 2,
             rowIndex * unitLength + unitLength,
@@ -123,5 +125,25 @@ horizontals.forEach((row, rowIndex) => {
             }
         );
         World.add(world, wall)
+    });
+});
+
+// vertical walls
+verticals.forEach((row, rowIndex) => {
+    row.forEach((open, columnIndex) => {
+        if(open){
+            return;
+        }
+        // drawing vertical walls
+        const wall = Bodies.rectangle(
+            columnIndex * unitLength + unitLength,
+            rowIndex * unitLength + unitLength / 2,
+            10,
+            unitLength,
+            {
+                isStatic: true
+            }
+        );
+        World.add(world, wall);
     });
 });
