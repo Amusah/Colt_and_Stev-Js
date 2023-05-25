@@ -167,4 +167,22 @@ const ball = Bodies.circle(
     unitLength / 2,
     unitLength / 4
 );
-World.add(world, ball)
+World.add(world, ball);
+
+
+// handling keyboard events to move the ball around
+document.addEventListener('keydown', event => {
+    //console.log(event)
+    if(event.code === 'KeyW' || event.code === 'ArrowUp'){
+        console.log('moved up');
+    }
+    if(event.code === 'KeyS' || event.code === 'ArrowDown'){
+        console.log('moved down');
+    }
+    if(event.code === 'KeyA' || event.code === 'ArrowLeft'){
+        console.log('moved left')
+    }
+    if(event.code === 'KeyD' || event.code === 'ArrowRight'){
+        console.log('moved right')
+    }
+});
