@@ -4,8 +4,8 @@ console.log(Matter.Engine.create());
 console.log(Matter.Render.create({}));
 
 const cells = 10;
-const width = 600;
-const height = 600;
+const width = window.innerWidth;
+const height = window.innerHeight;
 const unitLength = width / cells;
 
 const engine = Engine.create();
