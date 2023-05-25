@@ -3,7 +3,7 @@ console.log(Matter);
 console.log(Matter.Engine.create());
 console.log(Matter.Render.create({}));
 
-const cells = 3;
+const cells = 10;
 const width = 600;
 const height = 600;
 const unitLength = width / cells;
@@ -121,8 +121,9 @@ horizontals.forEach((row, rowIndex) => {
             columnIndex * unitLength + unitLength / 2,
             rowIndex * unitLength + unitLength,
             unitLength,
-            10,
+            5,
             {
+                label: 'wall',
                 isStatic: true
             }
         );
@@ -140,9 +141,10 @@ verticals.forEach((row, rowIndex) => {
         const wall = Bodies.rectangle(
             columnIndex * unitLength + unitLength,
             rowIndex * unitLength + unitLength / 2,
-            10,
+            5,
             unitLength,
             {
+                label: 'wall',
                 isStatic: true
             }
         );
@@ -202,6 +204,13 @@ Events.on(engine, 'collisionStart', (event) => {
     event.pairs.forEach(collision => {
         const labels = ['ball', 'goal'];
         if(labels.includes(collision.bodyA.label) &&
-         labels.includes(collision.bodyB.label)) console.log('won')
+         labels.includes(collision.bodyB.label)){
+            world.gravity.y = 1;
+            world.bodies.forEach(body => {
+                if(body.label === 'wall'){
+                    Body.setStatic(body, false);
+                }
+            })
+         }
     })
 })
