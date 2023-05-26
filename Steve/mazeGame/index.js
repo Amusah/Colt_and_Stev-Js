@@ -3,10 +3,13 @@ console.log(Matter);
 console.log(Matter.Engine.create());
 console.log(Matter.Render.create({}));
 
-const cells = 10;
+const horizontalCells = 4;
+const verticalCells = 3;
 const width = window.innerWidth;
 const height = window.innerHeight;
-const unitLength = width / cells;
+
+const unitLengthX = width / horizontalCells;
+const unitLengthY = height / verticalCells;
 
 const engine = Engine.create();
 //engine.world.gravity.y = 0;
@@ -55,12 +58,12 @@ const shuffle = arr => {
     return arr;
 }
 
-const grid = Array(cells).fill(null).map(() => Array(cells).fill(false));
+const grid = Array(verticalCells).fill(null).map(() => Array(horizontalCells).fill(false));
 //console.log(grid)
 
-const verticals = Array(cells).fill(null).map(() => Array(cells - 1).fill(false));
+const verticals = Array(verticalCells).fill(null).map(() => Array(horizontalCells - 1).fill(false));
 
-const horizontals = Array(cells - 1).fill(null).map(() => Array(cells).fill(false))
+const horizontals = Array(verticalCells - 1).fill(null).map(() => Array(horizontalCells).fill(false))
 //console.log(horizontals)
 
 const startRow = Math.floor(Math.random() * cells);
