@@ -3,8 +3,8 @@ console.log(Matter);
 console.log(Matter.Engine.create());
 console.log(Matter.Render.create({}));
 
-const horizontalCells = 14;
-const verticalCells = 10;
+const horizontalCells = 5;
+const verticalCells = 3;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -213,6 +213,7 @@ Events.on(engine, 'collisionStart', (event) => {
         const labels = ['ball', 'goal'];
         if(labels.includes(collision.bodyA.label) &&
          labels.includes(collision.bodyB.label)){
+            document.querySelector('.winner').classList.remove('hidden')
             world.gravity.y = 1;
             world.bodies.forEach(body => {
                 if(body.label === 'wall'){
@@ -222,3 +223,5 @@ Events.on(engine, 'collisionStart', (event) => {
          }
     })
 });
+document.querySelector('button').
+addEventListener('click', () => location.reload());
