@@ -3,8 +3,8 @@ console.log(Matter);
 console.log(Matter.Engine.create());
 console.log(Matter.Render.create({}));
 
-const horizontalCells = 5;
-const verticalCells = 3;
+const horizontalCells = 15;
+const verticalCells = 10;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
