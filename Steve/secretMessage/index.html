@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
     <title>Document</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        } */
-        body{
+        .content{
+            margin-top: 25vh;
+            padding: 0 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-        } 
+            align-content: center;
+        }
+        /* .col{
+            float: none !important;
+        } */
     </style>
 </head>
 <body>
-    <div class="main-container row">
+    <div class="content">
         <div class="col s8 ofset-s2">
             <div id="msg-form" class="card-panel">
                 <form action="">
                     <label id="label" for="msg">Enter a Secret Message</label>
-                    <input name="msg" id="message-input" type="text">
+                    <input name="msg" id="message-input" type="text" autocomplete="off">
                     <button class="btn">Create</button>
                 </form>
             </div>
