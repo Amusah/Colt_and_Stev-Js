@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
     <title>Document</title>
     <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
         .content{
             margin-top: 25vh;
             padding: 0 20px;
@@ -15,14 +20,26 @@
             align-items: center;
             align-content: center;
         }
-        /* .col{
-            float: none !important;
-        } */
+        #msg-content{
+            margin-top: 0;
+        }
+        footer{
+            text-align: center;
+            margin-top: auto;
+            color: #fff;
+            background-color: #2BBBAD;
+        }
     </style>
 </head>
 <body>
     <div class="content">
         <div class="col s8 ofset-s2">
+            <div id="show-msg" class="card-panel hide">
+                <h1 id="msg-content"></h1>
+                <div>
+                    <a href="./index.html">Create your secret message</a>
+                </div>
+            </div>
             <div id="msg-form" class="card-panel">
                 <form action="">
                     <label id="label" for="msg">Enter a Secret Message</label>
@@ -38,6 +55,11 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div>
+            <p>Made with 💗 by henry</p>
+        </div>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>
