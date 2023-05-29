@@ -6,20 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        } */
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+    </style>
 </head>
 <body>
-    <div class="row">
+    <div class="main-container row">
         <div class="col s8 ofset-s2">
-            <div class="card-panel">
+            <div id="msg-form" class="card-panel">
                 <form action="">
-                    <label for="msg">Enter a Secret Message</label>
+                    <label id="label" for="msg">Enter a Secret Message</label>
                     <input name="msg" id="message-input" type="text">
                     <button class="btn">Create</button>
                 </form>
             </div>
 
-            <div>Share this link with a friend
-                <input id="link-input" type="text">
+            <div id="link-form" class="card-panel hide">
+                <div>Share this link with a friend
+                    <input id="link-input" type="text">
+                </div>
             </div>
         </div>
     </div>
