@@ -27,7 +27,4 @@ document.querySelector('form').addEventListener('submit', e => {
         label.innerText = 'Field can\'t be empty';
         label.classList.add('red-text');
     }
-   
-
-    
 });
