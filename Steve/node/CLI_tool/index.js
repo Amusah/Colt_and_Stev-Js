@@ -2,8 +2,15 @@
 // the statement above make our file(index.js) executable 
 
 const fs = require('fs');
+const util = require('util');
 
-fs.readdir(process.cwd(), (err, filenames) => {
+// Method 2
+//const lstat = util.promisify(fs.lstat);
+
+// Method 3
+const { lstat } = fs.promises;
+
+fs.readdir(process.cwd(), async (err, filenames) => {
     // Either
     // err === error object
     // OR
@@ -13,33 +20,30 @@ fs.readdir(process.cwd(), (err, filenames) => {
         // Handle error
         console.log(err);
     }
-    
-    const allStats = Array(filenames.length).fill(null);
+
     for(let filename of filenames){
-        const index = filenames.indexOf(filename);
-
-        fs.lstat(filename, (err, stats) => {
-            if(err){
-                console.log(err)
-            }
-            allStats[index] = stats;
-
-            const ready = allStats.every(stats => stats);
-            if(ready){
-                allStats.forEach((stats, index) => {
-                    console.log(filenames[index], stats.isFile());
-                });
-            }
-        });
+        try {
+            const stats = await lstat(filename);
+            console.log(filename, stats.isFile());
+        } catch (err) {
+            console.log(err)
+        }
     }
-
-    console.log(filenames);
-    console.log(`current directory is ${process.cwd()}`);
 });
 
+// Method 1
 /*
-    we noticed that the process object was not required
-    in this file.... const process = requ
+const lstat = filename => {
+    return new Promise((resolve, reject) => {
+        fs.lstat(filename, (err, stats) => {
+            if(err){
+                reject(err)
+            }
+            resolve(stats)
+        });
+    });
+};
+*/
 
 /*
     we noticed that the process object was not required
