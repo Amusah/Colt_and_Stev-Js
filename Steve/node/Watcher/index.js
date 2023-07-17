@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-console.log('i was executed');
-
 /*
     Big Issues of this project
     -Need to detect file changes or when a file is updated ...use(chokidar package)
@@ -11,3 +9,10 @@ console.log('i was executed');
     -Need to figure out how to execute some JS code from within ...use(STDlib module 'child_process')
     a JS program
 */
+
+const chokidar = require('chokidar');
+
+chokidar.watch('.')
+.on('add', () => console.log('FILE ADDED'))
+.on('change', () => console.log('FILE CHANGED'))
+.on('unlink', () => console.log('FILE UNLINKED'));
