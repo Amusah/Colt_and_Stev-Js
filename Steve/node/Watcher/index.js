@@ -28,9 +28,14 @@ program
         throw new Error(`could not find the file ${name}`);
     }
     
+    let proc;
     const start = debounce(() => {
         //console.log('STARTING USERS PROGRAM');
-        spawn('node', [name], {stdio: 'inherit'});
+        if(proc){
+            proc.kill();
+        }
+        console.log('>>>>> Starting process');
+        proc = spawn('node', [name], {stdio: 'inherit'});
     }, 100);
     
     chokidar.watch('.')
